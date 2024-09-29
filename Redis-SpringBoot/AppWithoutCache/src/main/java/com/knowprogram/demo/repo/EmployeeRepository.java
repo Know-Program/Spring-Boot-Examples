@@ -1,0 +1,9 @@
+package com.knowprogram.demo.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.knowprogram.demo.model.Employee;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+
+}
