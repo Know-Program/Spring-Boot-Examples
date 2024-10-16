@@ -33,7 +33,10 @@ public class SecurityFilter extends OncePerRequestFilter {
         // 1. read token from Auth header
         String token = request.getHeader("Authorization");
         if (token != null) {
-            // token = token.substring(7).trim(); // if using Bearer Token in Auth Type
+            // if using Bearer Token in Auth Type
+            if(token.startsWith("Bearer")) {
+                token = token.substring(7).trim();
+            }
             // do validation
             String username = util.getUsername(token);
             // username should not be empty & context-auth must be empty
